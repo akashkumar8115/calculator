@@ -81,19 +81,26 @@ function deleteNumber() {
 }
 
 const startRecognitionButton = document.getElementById("start-recognition");
+const mute = document.getElementById("mute");
+const unmute = document.getElementById("unmute");
 startRecognitionButton.addEventListener("click", stopRecognition);
 
 let voice = true;
 function stopRecognition() {
-  if (voice) {
-    startRecognitionButton.style.display = "flex";
-    startRecognitionButton.innerHTML = "Start...";
-    voice = false;
-  } else {
-    startRecognitionButton.style.display = "flex";
-    startRecognitionButton.innerHTML = "Not";
-    voice = true;
-  }
+    if (voice) {
+        // startRecognitionButton.style.display = "flex";
+        // startRecognitionButton.innerHTML = "Start...";
+        unmute.style.display = "block"
+        mute.style.display = "none"
+
+        voice = false;
+    } else {
+        // startRecognitionButton.style.display = "flex";
+        // startRecognitionButton.innerHTML = "Not";
+        unmute.style.display = "none"
+        mute.style.display = "block"
+        voice = true;
+    }
 }
 function startRecognition(op = "am i audiable ?") {
   if (voice) {
